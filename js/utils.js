@@ -1,16 +1,26 @@
 /**
+ * Generates a random number in specified range
+ * @param {Number} start Start of the range
+ * @param {Number} end End of the range
+ * @returns Random number in range
+ */
+export const randomInRange = function (start, end) {
+  return Math.floor(Math.random() * (end - start + 1) + start);
+};
+
+/**
  * Checks if string length fits in specified max length
  * @param {String} string String whose length to check
  * @param {Number} maxLength Max length of a string
  * @returns True if less than max length, false otherwise
  */
-const stringFits = (string, maxLength) => string.length <= maxLength;
+export const stringFits = (string, maxLength) => string.length <= maxLength;
 
 /**
  * Tests 'stringFits' function
  * @returns True if tests completed succesfully, false otherwise
  */
-const stringFitsTests = () => {
+export const stringFitsTests = () => {
   const testStr = 'Test string for testing string test';
 
   const res1 = stringFits(testStr, 10) === false;
@@ -21,14 +31,12 @@ const stringFitsTests = () => {
   return res1 && res2 && res3 && res4;
 };
 
-export const stringFitsResults = stringFitsTests();
-
 /**
  * Checks if string is a palindrome
  * @param {String} string String
  * @returns True if string is a palindrome, false otherwise
  */
-const isPalindrome = (string) => {
+export const isPalindrome = (string) => {
   const formattedString = string.toLowerCase().replaceAll(' ', '');
   let reversedString = '';
 
@@ -43,7 +51,7 @@ const isPalindrome = (string) => {
  * Tests 'stringFits' function
  * @returns True if tests completed succesfully, false otherwise
  */
-const isPalindromeTests = () => {
+export const isPalindromeTests = () => {
   const res1 = isPalindrome('топот') === true;
   const res2 = isPalindrome('штаны') === false;
   const res3 = isPalindrome('ДовОд') === true;
@@ -51,5 +59,3 @@ const isPalindromeTests = () => {
 
   return res1 && res2 && res3 && res4;
 };
-
-export const isPalindromeResults = isPalindromeTests();
